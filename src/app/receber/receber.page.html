@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contas a Receber</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Cliente</ion-label>
+    <ion-input [(ngModel)]="cliente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Vencimento</ion-label>
+    <ion-input [(ngModel)]="vencimento" placeholder="Ex: 15/04/2026"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Pagamento</ion-label>
+    <ion-input [(ngModel)]="pagamento" placeholder="Ex: 14/04/2026"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Valor</ion-label>
+    <ion-input [(ngModel)]="valor" placeholder="Ex: 320,00"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="tertiary" (click)="cadastrar()">
+    Cadastrar
+  </ion-button>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Contas a receber</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of listaReceber; let i = index">
+      <ion-label>
+        <h2>{{ item.cliente }}</h2>
+        <p>
+          Vencimento: {{ item.vencimento }} — Pagamento: {{ item.pagamento }} — Valor:
+          {{ item.valor }}
+        </p>
+      </ion-label>
+      <ion-button slot="end" color="danger" size="small" (click)="excluir(i)">
+        Excluir
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

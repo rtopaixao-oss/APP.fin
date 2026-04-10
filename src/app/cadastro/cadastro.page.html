@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input [(ngModel)]="nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Tipo</ion-label>
+    <ion-input
+      [(ngModel)]="tipo"
+      placeholder="F/C: F = Pessoa Física, C = Pessoa Jurídica"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Endereço</ion-label>
+    <ion-input [(ngModel)]="endereco"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="success" (click)="cadastrar()">
+    Cadastrar
+  </ion-button>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Cadastros</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of listaCadastros; let i = index">
+      <ion-label>
+        <h2>{{ item.nome }}</h2>
+        <p>Tipo: {{ item.tipo }} — Endereço: {{ item.endereco }}</p>
+      </ion-label>
+      <ion-button slot="end" color="danger" size="small" (click)="excluir(i)">
+        Excluir
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
