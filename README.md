@@ -9,10 +9,7 @@ Aplicação **Ionic** + **Angular** para gestão financeira (contas a pagar/rece
 
 ## Como rodar localmente
 
-**Importante:** endereços como `http://localhost:4200` abrem **o que estiver rodando no seu computador** naquela porta — **não** o código do GitHub. Se outro projeto (por exemplo um app de faltas) já estiver com `ng serve` na porta 4200, é **esse** que vai aparecer. Para ver **este** app:
-
-1. Pare outros servidores de desenvolvimento que usem a mesma porta, **ou** use uma porta fixa (abaixo).
-2. No terminal, entre **nesta** pasta do repositório clonado e suba o servidor.
+Este projeto está configurado para subir **sempre** na porta **4299**, separada da porta padrão do Angular (4200). Assim, depois de `npm start` **neste repositório**, o endereço correto é sempre o de baixo — e não mistura com outros apps que você possa ter na 4200.
 
 ```bash
 git clone git@github.com:rtopaixao-oss/APP.fin.git
@@ -21,21 +18,17 @@ npm install
 npm start
 ```
 
-No final do comando, o Angular mostra a URL exata (em geral porta **4200**). Abra **só** essa URL **depois** do `npm start` ter iniciado neste projeto.
+Quando o terminal mostrar que o servidor está pronto, abra:
 
-Se a porta 4200 estiver ocupada, use outra porta e abra a URL que o terminal indicar:
+**http://localhost:4299/**
 
-```bash
-npx ng serve --port 4201 --host localhost
-```
-
-Exemplo: o navegador deve apontar para `http://localhost:4201/` quando você usar a porta 4201.
+> **Sobre links no GitHub:** `localhost` só responde depois que **você** rodou `npm start` na pasta clonada. O README não “abre o app do site”; ele indica onde o **seu** servidor deste código vai escutar (neste caso, porta **4299**).
 
 ## Scripts úteis
 
 | Comando      | Descrição |
 |-------------|-------------------------|
-| `npm start` | Servidor de desenvolvimento (`ng serve`) |
+| `npm start` | Servidor de desenvolvimento (`ng serve`, porta **4299**) |
 | `npm run build` | Build de produção   |
 | `npm test`  | Testes unitários (Karma/Jasmine) |
 
